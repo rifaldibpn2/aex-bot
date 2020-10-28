@@ -54,8 +54,8 @@ const MessageHandler = async (client = new Client(), message) => {
         const isGroupAdmins = groupAdmins.includes(sender.id) || false
         const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
 
-        const prefix = '!' || '#' || ''
-        const krisar = '6282299265151@c.us'  // pliese don't delete this variable.
+        const prefix = '$' || '#' || ''
+        const krisar = '6289507318790@c.us'  // pliese don't delete this variable.
 
         const date = (time) => moment(time * 1000).format('DD/MM/YY HH:mm:ss')
 
@@ -64,7 +64,7 @@ const MessageHandler = async (client = new Client(), message) => {
         const argv = body.slice(1).trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
 
-        const uaOverride =  "WhatsApp/2.2029.4 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+        const uaOverride =  'WhatsApp/2.2029.4 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
         
         const isQuotedImage = quotedMsg && quotedMsg.type === 'image'
         const isQuotedVideo = quotedMsg && quotedMsg.type === 'video'
@@ -122,7 +122,7 @@ const MessageHandler = async (client = new Client(), message) => {
                         }
                     }
 
-                    await client.reply(from, `Add member by *aex-bot*\n\nTotal number: ${datamember.length}\nDelay: 20s.`, id)
+                    await client.reply(from, `Add member by *Paimon*\n\nTotal number: ${datamember.length}\nDelay: 20s.`, id)
 
                     loop(0)
                 }
@@ -139,7 +139,7 @@ const MessageHandler = async (client = new Client(), message) => {
                 break
             case 'promote':
                 if (isGroupMsg && isGroupAdmins) {
-                    if (_.isEmpty(mentionedJidList) === true) { client.reply(from, 'Harap tag member yang akan di kick!', id)}
+                    if (_.isEmpty(mentionedJidList) === true) { client.reply(from, 'Harap tag member yang akan di promote', id)}
                     mentionedJidList.map(async user => {
                         await client.promoteParticipant(groupId, user)
                     })
@@ -148,7 +148,7 @@ const MessageHandler = async (client = new Client(), message) => {
                 break
             case 'demote':
                 if (isGroupMsg && isGroupAdmins) {
-                    if (_.isEmpty(mentionedJidList) === true) { client.reply(from, 'Harap tag member yang akan di kick!', id)}
+                    if (_.isEmpty(mentionedJidList) === true) { client.reply(from, 'Harap tag member yang akan di demote', id)}
                     mentionedJidList.map(async user => {
                         await client.promoteParticipant(groupId, user)
                     })
@@ -161,7 +161,7 @@ const MessageHandler = async (client = new Client(), message) => {
                 client.reply(from, msg, id)
                 insert(author, type, content, pushname, from, argv)
                 break
-            case 'getall':
+            case 'mentionall':
                 if (isGroupMsg && isGroupAdmins) {
                     let msg = `List member of group: *${formattedTitle}*\n\nTotal: ${groupMembers.length}\n\n`
                     let index = 1;
@@ -205,7 +205,7 @@ const MessageHandler = async (client = new Client(), message) => {
             case 'kickme': 
                 // client.reply(from, 'Maaf fitur di non-aktifkan sementara.', id)
                 if (isGroupMsg && isGroupAdmins) {
-                    client.sendText(from, `Invite kembali aex jika dirasa dibutuhkan yah~`)
+                    client.sendText(from, `Invite kembali Paimon jika dirasa dibutuhkan yah~`)
                         .then(() => {
                             client.leaveGroup(groupId)
                         })
